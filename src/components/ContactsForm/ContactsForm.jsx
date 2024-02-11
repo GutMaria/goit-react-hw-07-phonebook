@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {  getAllContacts} from '../../redux/contacts/contacts-selectors'
-import { addContact } from '../../redux/contacts/contacts-slice'
+import { addContact } from '../../redux/contacts/contacts-operations'
 import { nanoid } from "nanoid";
 import css from './contacts-form.module.css'
 
@@ -16,6 +16,8 @@ const ContactsForm = () => {
 
   const contacts = useSelector(getAllContacts);
   const dispatch = useDispatch();
+
+
 
   const onAddContact = (data) => {
     // Якщо контакт вже існує:

@@ -12,7 +12,8 @@ const App = () => {
     return (
       <div className="container">
         <h1>Phonebook</h1>
-        <ContactsForm  />
+        <ContactsForm />
+        <ContactsList />
         {/* якщо є список контактів рендеримо розмітку, якщо пусто - то ні */}
         {Boolean(contacts.length) && <>
           <h2>Contacts</h2>
