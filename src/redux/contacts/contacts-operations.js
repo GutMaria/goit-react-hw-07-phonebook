@@ -7,7 +7,6 @@ export const fetchContacts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const data = await contactsApi.requestContacts();
-      console.log('Запит пройшов, відповідь:', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -20,7 +19,6 @@ export const deleteContact = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       await contactsApi.requestDeleteContact(id);
-      console.log('Запит на видалення контакту пройшов, відповідь:', id);
       return id;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -33,7 +31,6 @@ export const addContact = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       const data = await contactsApi.requestAddContact(body);
-      console.log('Запит на додавання контакту пройшов, відповідь:', data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

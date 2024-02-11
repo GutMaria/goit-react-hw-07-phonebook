@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {  getAllContacts} from '../../redux/contacts/contacts-selectors'
+import { selectContacts} from '../../redux/contacts/contacts-selectors'
 import { addContact } from '../../redux/contacts/contacts-operations'
 import { nanoid } from "nanoid";
 import css from './contacts-form.module.css'
@@ -14,14 +14,14 @@ const INITIAL_STATE = {
 const ContactsForm = () => {
   const [state, setState] = useState(INITIAL_STATE);
 
-  const contacts = useSelector(getAllContacts);
+  const {items} = useSelector(selectContacts);
   const dispatch = useDispatch();
 
 
 
   const onAddContact = (data) => {
     // Якщо контакт вже існує:
-    const isExist = contacts.some(
+    const isExist = items.some(
       (contact) => contact.name.toLowerCase() === data.name.toLowerCase());
     
     if (isExist) {
